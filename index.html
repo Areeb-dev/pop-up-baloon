@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login </title>
+  <!-- css page link -->
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+ 
+ 
+  <!-- Disable browser back button  -->
+  <!-- <script>
+    function preventBack() {
+      window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () {
+      null
+    };
+  </script> -->
+</head>
+
+<body>
+  <form>
+    <h2>Login Form</h2>
+
+    <div class="input-container">
+      <i class="fa fa-envelope icon"></i>
+      <input class="input-field" type="text" id="Lemail" placeholder="Email" name="usrnm" required>
+    </div>
+
+
+    <div class="input-container">
+      <i class="fa fa-key icon"></i>
+      <input class="input-field" type="password" id="Lpassword" placeholder="Password" name="psw" required>
+    </div>
+
+    <button type="button" onclick="login()" class="btn"><b>Login</b></button>
+    <p>Don't have an account?
+      <a href="/HTML/signup.html">Signup Here
+    </p>
+  </form>
+
+
+
+
+  <script src="/js/app.js"></script>
+</body>
+
+</html>

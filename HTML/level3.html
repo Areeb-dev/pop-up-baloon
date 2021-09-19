@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<style>
+#logout-btn {
+    margin-top: 2px;
+    float: right;
+    background: rgb(11, 94, 215);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+}
+#logout-btn:hover {
+/* background-color: white; */
+opacity: 1;
+color: #000;
+}
+#retry-btn{
+    margin-left: 45%;
+    margin-top: 2px;
+    /* float: right; */
+    background: rgb(11, 94, 215);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+}
+#next-level{
+    /* margin-left: 440%; */
+    margin-top: 2px;
+    /* float: right; */
+    background: rgb(11, 94, 215);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    opacity: 0.9;
+}
+body{
+    font-family:sans-serif;
+    /* padding: 30px; */
+    background:#ededed;
+}
+
+.wrapper{
+    max-width: 690px;
+    margin: 0 auto;
+}
+
+.blue {
+    color:#3f7abe;
+}
+
+h1,h3{
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #08a3d9;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #000380;
+}
+
+#balloon-gallery div{
+    background: #ff3300;
+    height: 121px;
+    width: 119px;
+    text-align: center;
+    color: #ff3300;
+    font-size: 40px;
+    font-family: sans-serif, arial;
+    border-radius: 100%;
+    margin-top: 20px;
+    display: inline-block;
+    /* float: left; */
+    margin: 2.5px 5 px 2.5px 0px;
+}
+#yay-no-balloons {
+    display:none;
+    color:#ff3300;
+    font-size:100px;
+} 
+.balloon1{
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation: myfirst 7s 2;
+  animation-direction: alternate;
+}
+
+@keyframes myfirst {
+  0%   {background: red; left: 0px; top: 0px;}
+  25%  {background: red; left: 200px; top: 0px;}
+  100% {background: red; left: 0px; top: 0px;}
+}
+
+.balloon2{
+  width: 100px;
+  height: 100px;
+  background: black;
+  position: relative;
+  animation: myfirst1 7s 2;
+  animation-direction: alternate;
+}
+.balloon2:hover{
+    background-color: white;
+}
+@keyframes myfirst1 {
+  0%   {background: pink; left: 0px; top: 0px;}
+  25%  {background: pink; left: 200px; top: 0px;}
+  100% {background: pink; left: 0px; top: 0px;}
+}
+
+
+
+
+</style>
+ 
+</head>
+<body>
+    <h3>Level 3</h3>
+    <button id="logout-btn" onclick="logout()">Logout</button>
+    <div class="wrapper">
+        <h1>Pop the Pink balloons by moving</br>your mouse over them</h1>
+        <div id="yay-no-balloons"><span class="blue">Wow!</span> All balloons popped!<br> <button id="next-level" onclick="level4()">Level 4</button></div>
+        <div id="gamekhatam"><span class="blue"></span> </div>
+        <div id="balloon-gallery">
+            <!-- 1 -->
+            <div class="balloon1"></div>
+            <!-- 2 -->
+            <div class="balloon2"></div>
+            <!-- 3 -->
+            <div class="balloon1"></div><br>
+            <!-- 4 -->
+            <div class="balloon1"></div>
+            <!-- 5 -->
+            <div class="balloon2"></div>
+            <!-- 6 -->
+            <div class="balloon2"></div>
+            
+        </div>
+    </div>
+    <script>
+    var popped = 0;
+    document.addEventListener('mouseover', function(e){
+        
+        if (e.target.className === "balloon2"){
+                    e.target.style.backgroundColor = "#ededed";
+                    e.target.textContent = "POP!";
+                    popped++;
+                    removeEvent(e);
+                    checkAllPopped();
+        }
+        else if(e.target.className === "balloon1" ){
+            console.log("gameover")
+            gameover()
+
+        }   
+    });
+    
+    function removeEvent(e){
+        e.target.removeEventListener('mouseover', function(){
+            
+        })
+    };
+    function checkAllPopped(){
+       
+        if (popped === 4){
+            console.log('all popped!');
+            let gallery = document.querySelector('#balloon-gallery');
+            let message = document.querySelector('#yay-no-balloons');
+            
+            gallery.innerHTML = '';
+            // game.style.display='block'
+            message.style.display = 'block';
+        }
+    };
+    function gameover(){
+        let gallery = document.querySelector('#balloon-gallery');
+        let message = document.querySelector('#yay-no-balloons');
+        gallery.style.display = "none";
+        message.style.display = 'none';
+        gallery.innerHTML = "none";
+        message.innerHTML= 'none';
+
+        let gameOver=document.querySelector('#gamekhatam');
+        gameOver.style.textAlign="center"
+        gameOver.style.fontSize="bold"
+        gameOver.style.color="red"
+        gameOver.append("Game Over")
+        // retry button
+        let btnretry = document.createElement("BUTTON");
+        btnretry.id="retry-btn"
+        btnretry.onclick=function retry(){
+            location.href="../HTML/level3.html"
+        }
+        let btnretryText = document.createTextNode("Retry");
+        btnretry.appendChild(btnretryText);
+        document.body.appendChild(btnretry);
+    }
+    const firebaseConfig = {
+    apiKey: "AIzaSyBH4fPT0-5wFFh9kMlQcYO_gYlrLPbrjfc",
+    authDomain: "pop-up-baloon-b4d98.firebaseapp.com",
+    projectId: "pop-up-baloon-b4d98",
+    storageBucket: "pop-up-baloon-b4d98.appspot.com",
+    messagingSenderId: "917188028617",
+    appId: "1:917188028617:web:3e27f47cccdacc5b7a4518",
+    measurementId: "G-5V23EJQL65"
+  };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+    const logout=()=>{
+    firebase.auth().signOut().then(() => {
+        location.href="../index.html"
+    })
+}
+
+
+        </script>
+
+</body>
+</html>

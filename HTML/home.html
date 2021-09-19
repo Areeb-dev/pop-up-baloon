@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script  src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<style>
+#logout-btn {
+    margin-top: 2px;
+    float: right;
+    background: rgb(11, 94, 215);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+}
+#logout-btn:hover {
+/* background-color: white; */
+opacity: 1;
+color: #000;
+}
+#retry-btn{
+    margin-left: 45%;
+    margin-top: 2px;
+    /* float: right; */
+    background: rgb(11, 94, 215);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 10%;
+    opacity: 0.9;
+}
+#next-level{
+    /* margin-left: 440%; */
+    margin-top: 2px;
+    /* float: right; */
+    background: rgb(11, 94, 215);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    opacity: 0.9;
+}
+body{
+    font-family:sans-serif;
+    /* padding: 30px; */
+    background:#ededed;
+}
+
+.wrapper{
+    max-width: 690px;
+    margin: 0 auto;
+}
+
+.blue {
+    color:#3f7abe;
+}
+
+h1,h3{
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #08a3d9;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #000380;
+}
+
+#balloon-gallery div{
+    background: #ff3300;
+    height: 121px;
+    width: 119px;
+    text-align: center;
+    color: #ff3300;
+    font-size: 40px;
+    font-family: sans-serif, arial;
+    border-radius: 100%;
+    margin-top: 20px;
+    display: inline-block;
+    /* float: left; */
+    margin: 2.5px 5 px 2.5px 0px;
+}
+
+#balloon-gallery div:nth-child(3n){
+    background: #ffce00;
+    color: #ffce00;
+}
+
+#balloon-gallery div:nth-child(3n-1){
+    background:#3f7abe;
+    color:#3f7abe;
+}
+
+#balloon-gallery div:nth-child(5n){
+    background:#8e7a8e;
+    color:#8e7a8e;
+}
+
+#balloon-gallery div:nth-child(13){
+    background:#8e7a8e;
+    color:#8e7a8e;
+}
+
+#balloon-gallery div:nth-child(10n){
+    background:#ff3300;
+    color: #ff3300;
+}
+
+#balloon-gallery div:nth-child(4n){
+    clear:right;
+}
+
+#yay-no-balloons {
+    display:none;
+    color:#ff3300;
+    font-size:100px;
+}
+</style>
+ 
+</head>
+<body>
+    <h3>Level 1 
+        <button id="logout-btn" onclick="logout()">Logout</button></h3>
+    <div class="wrapper">
+        <h1>Pop the yellow balloons by moving</br>your mouse over them</h1>
+        <div id="yay-no-balloons"><span class="blue">Wow!</span> All balloons popped!<br> <button id="next-level" onclick="level2()">Level 2</button></div>
+        <div id="gamekhatam"><span class="blue"></span> </div>
+        <div id="balloon-gallery">
+            <!-- 1 -->
+            <div class="balloon2"></div>
+            <!-- 2 -->
+            <div class="balloon"></div>
+            <!-- 3 -->
+            <div class="balloon1"></div>
+            <!-- 4 -->
+            <div class="balloon2"></div>
+            <!-- 5 -->
+            <div class="balloon"></div>
+            <!-- 6 -->
+            <div class="balloon1"></div>
+            <!-- 7 -->
+            <div class="balloon2"></div>
+            <!-- 8 -->
+            <div class="balloon"></div>
+            <!-- 9 -->
+            <div class="balloon1"></div>
+            <!-- 10 -->
+            <div class="balloon2"></div>
+            <!-- 11 -->
+            <div class="balloon"></div>
+            <!-- 12 -->
+            <div class="balloon1"></div>
+            <!-- 13 -->
+            <div class="balloon"></div>
+            <!-- 14 -->
+            <div class="balloon"></div>
+            <!-- 15 -->
+            <div class="balloon1"></div>
+            <!-- 16 -->
+            <div class="balloon2"></div>
+            <!-- 17 -->
+            <div class="balloon2"></div>
+            <!-- 18 -->
+            <div class="balloon1"></div>
+            <!-- 19-->
+            <div class="balloon2"></div>
+            <!-- 20 -->
+            <div class="balloon2"></div>
+
+        </div>
+
+    </div>
+    <script>
+        
+        </script>
+    <script src="../js/app.js"></script>
+</body>
+</html>
