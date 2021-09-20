@@ -77,11 +77,11 @@ h1,h3{
 }
 
 #balloon-gallery div{
-    background: #ff3300;
+    background: yellow;
     height: 121px;
     width: 119px;
     text-align: center;
-    color: #ff3300;
+    color:yellow;
     font-size: 40px;
     font-family: sans-serif, arial;
     border-radius: 100%;
@@ -97,23 +97,23 @@ h1,h3{
 }
 
 #balloon-gallery div:nth-child(3n-1){
-    background:#3f7abe;
-    color:#3f7abe;
+    background: #ffce00;
+    color: #ffce00;
 }
 
 #balloon-gallery div:nth-child(5n){
-    background:#8e7a8e;
-    color:#8e7a8e;
+    background: #ffce00;
+    color: #ffce00;
 }
 
 #balloon-gallery div:nth-child(13){
-    background:#8e7a8e;
-    color:#8e7a8e;
+    background: black;
+    color: black;
 }
 
 #balloon-gallery div:nth-child(10n){
-    background:#ff3300;
-    color: #ff3300;
+    background: red;
+    color: red;
 }
 
 #balloon-gallery div:nth-child(4n){
@@ -129,27 +129,27 @@ h1,h3{
  
 </head>
 <body>
-    <h3>Level 2</h3>
+    <h3>Level 5</h3>
     <button id="logout-btn" onclick="logout()">Logout</button>
     <div class="wrapper">
         <h1>Pop the Red balloons by moving</br>your mouse over them</h1>
-        <div id="yay-no-balloons"><span class="blue">Wow!</span> All balloons popped!<br> <button id="next-level" onclick="level3()">Level 3</button></div>
+        <div id="yay-no-balloons"><span class="blue">Wow!</span> All balloons popped!<br> <button id="next-level" onclick="level3()">Level 6</button></div>
         <div id="gamekhatam"><span class="blue"></span> </div>
         <div id="balloon-gallery">
             <!-- 1 -->
-            <div class="balloon2"></div>
+            <div class="balloon"></div>
             <!-- 2 -->
             <div class="balloon"></div>
             <!-- 3 -->
             <div class="balloon"></div>
             <!-- 4 -->
-            <div class="balloon2"></div>
+            <div class="balloon"></div>
             <!-- 5 -->
             <div class="balloon"></div>
             <!-- 6 -->
             <div class="balloon"></div>
             <!-- 7 -->
-            <div class="balloon2"></div>
+            <div class="balloon"></div>
             <!-- 8 -->
             <div class="balloon"></div>
             <!-- 9 -->
@@ -167,13 +167,13 @@ h1,h3{
             <!-- 15 -->
             <div class="balloon"></div>
             <!-- 16 -->
-            <div class="balloon2"></div>
+            <div class="balloon"></div>
             <!-- 17 -->
-            <div class="balloon2"></div>
+            <div class="balloon"></div>
             <!-- 18 -->
             <div class="balloon"></div>
             <!-- 19-->
-            <div class="balloon2"></div>
+            <div class="balloon"></div>
             <!-- 20 -->
             <div class="balloon2"></div>
  
@@ -181,7 +181,7 @@ h1,h3{
     </div>
     <script>
 function level3(){
-    location.href="./level3.html"
+    location.href="./level6.html"
 }
 
     // location.href="./level2.html"
@@ -209,7 +209,7 @@ function level3(){
     };
     function checkAllPopped(){
        
-        if (popped == 8){
+        if (popped == 2){
             console.log('all popped!');
             let gallery = document.querySelector('#balloon-gallery');
             let message = document.querySelector('#yay-no-balloons');
@@ -235,7 +235,7 @@ function level3(){
         let btnretry = document.createElement("BUTTON");
         btnretry.id="retry-btn"
         btnretry.onclick=function retry(){
-            location.href="../HTML/level2.html"
+            location.href="./level5.html"
         }
         let btnretryText = document.createTextNode("Retry");
         btnretry.appendChild(btnretryText);
@@ -254,7 +254,7 @@ function level3(){
 firebase.initializeApp(firebaseConfig);
     const logout=()=>{
     firebase.auth().signOut().then(() => {
-        location.href="../index.html"
+        location.href="./index.html"
     })
 }
         </script>

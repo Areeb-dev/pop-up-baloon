@@ -20,7 +20,7 @@ const signup=()=> {
     firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 var user = userCredential.user;
-                location.href="../index.html"
+                location.href="./index.html"
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -34,7 +34,7 @@ const login=()=>{
     firebase.auth().signInWithEmailAndPassword(Lemail, Lpassword)
         .then((userCredential) => {
             user = userCredential.user;
-            location.href="./HTML/home.html"
+            location.href="./home.html"
             console.log("succesfully signin")
         })
         .catch((error) => {
@@ -66,7 +66,7 @@ auth.onAuthStateChanged((user) => {
 //logout
 const logout=()=>{
     firebase.auth().signOut().then(() => {
-        location.href="../index.html"
+        location.href="./index.html"
     })
 }
     var popped = 0;
@@ -119,7 +119,7 @@ const logout=()=>{
         let btnretry = document.createElement("BUTTON");
         btnretry.id="retry-btn"
         btnretry.onclick=function retry(){
-            location.href="../HTML/home.html"
+            location.href="./home.html"
         }
         let btnretryText = document.createTextNode("Retry");
         btnretry.appendChild(btnretryText);

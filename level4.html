@@ -235,7 +235,7 @@ function level3(){
         let btnretry = document.createElement("BUTTON");
         btnretry.id="retry-btn"
         btnretry.onclick=function retry(){
-            location.href="../HTML/level4.html"
+            location.href="./level4.html"
         }
         let btnretryText = document.createTextNode("Retry");
         btnretry.appendChild(btnretryText);
@@ -254,7 +254,7 @@ function level3(){
 firebase.initializeApp(firebaseConfig);
     const logout=()=>{
     firebase.auth().signOut().then(() => {
-        location.href="../index.html"
+        location.href="./index.html"
     })
 }
         </script>

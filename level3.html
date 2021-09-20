@@ -27,7 +27,7 @@ opacity: 1;
 color: #000;
 }
 #retry-btn{
-    margin-left: 40%;
+    margin-left: 45%;
     margin-top: 2px;
     /* float: right; */
     background: rgb(11, 94, 215);
@@ -35,7 +35,7 @@ color: #000;
     padding: 15px 20px;
     border: none;
     cursor: pointer;
-    width: 30%;
+    width: 10%;
     opacity: 0.9;
 }
 #next-level{
@@ -77,11 +77,11 @@ h1,h3{
 }
 
 #balloon-gallery div{
-    background: yellow;
+    background: #ff3300;
     height: 121px;
     width: 119px;
     text-align: center;
-    color:yellow;
+    color: #ff3300;
     font-size: 40px;
     font-family: sans-serif, arial;
     border-radius: 100%;
@@ -90,103 +90,76 @@ h1,h3{
     /* float: left; */
     margin: 2.5px 5 px 2.5px 0px;
 }
-
-#balloon-gallery div:nth-child(3n){
-    background: #ffce00;
-    color: #ffce00;
-}
-
-#balloon-gallery div:nth-child(3n-1){
-    background: #ffce00;
-    color: #ffce00;
-}
-
-#balloon-gallery div:nth-child(5n){
-    background: #ffce00;
-    color: #ffce00;
-}
-
-#balloon-gallery div:nth-child(13){
-    background: blue;
-    color: black;
-}
-
-#balloon-gallery div:nth-child(10n){
-    background: #ffce00;
-    color: #ffce00;
-}
-
-#balloon-gallery div:nth-child(4n){
-    clear:right;
-}
-
 #yay-no-balloons {
     display:none;
     color:#ff3300;
     font-size:100px;
+} 
+.balloon1{
+  width: 100px;
+  height: 100px;
+  background: red;
+  position: relative;
+  animation: myfirst 7s 2;
+  animation-direction: alternate;
 }
+
+@keyframes myfirst {
+  0%   {background: red; left: 0px; top: 0px;}
+  25%  {background: red; left: 200px; top: 0px;}
+  100% {background: red; left: 0px; top: 0px;}
+}
+
+.balloon2{
+  width: 100px;
+  height: 100px;
+  background: black;
+  position: relative;
+  animation: myfirst1 7s 2;
+  animation-direction: alternate;
+}
+.balloon2:hover{
+    background-color: white;
+}
+@keyframes myfirst1 {
+  0%   {background: pink; left: 0px; top: 0px;}
+  25%  {background: pink; left: 200px; top: 0px;}
+  100% {background: pink; left: 0px; top: 0px;}
+}
+
+
+
+
 </style>
  
 </head>
 <body>
-    <h3>Level 6</h3>
+    <h3>Level 3</h3>
     <button id="logout-btn" onclick="logout()">Logout</button>
     <div class="wrapper">
-        <h1>Pop the blue balloons by moving</br>your mouse over them</h1>
-        <div id="yay-no-balloons"><span class="blue">Wow!</span> All balloons popped!<br>
-            <h3>Thank you for playing<br>
-                <button id="retry-btn"onclick="againplay()">Play Again</button></h3>
-        </div>
+        <h1>Pop the Pink balloons by moving</br>your mouse over them</h1>
+        <div id="yay-no-balloons"><span class="blue">Wow!</span> All balloons popped!<br> <button id="next-level" onclick="level4()">Level 4</button></div>
         <div id="gamekhatam"><span class="blue"></span> </div>
         <div id="balloon-gallery">
             <!-- 1 -->
-            <div class="balloon"></div>
+            <div class="balloon1"></div>
             <!-- 2 -->
-            <div class="balloon"></div>
-            <!-- 3 -->
-            <div class="balloon"></div>
-            <!-- 4 -->
-            <div class="balloon"></div>
-            <!-- 5 -->
-            <div class="balloon"></div>
-            <!-- 6 -->
-            <div class="balloon"></div>
-            <!-- 7 -->
-            <div class="balloon"></div>
-            <!-- 8 -->
-            <div class="balloon"></div>
-            <!-- 9 -->
-            <div class="balloon"></div>
-            <!-- 10 -->
-            <div class="balloon"></div>
-            <!-- 11 -->
             <div class="balloon2"></div>
-            <!-- 12 -->
-            <div class="balloon"></div>
-            <!-- 13 -->
-            <div class="balloon"></div>
-            <!-- 14 -->
-            <div class="balloon"></div>
-            <!-- 15 -->
-            <div class="balloon"></div>
-            <!-- 16 -->
-            <div class="balloon"></div>
-            <!-- 17 -->
-            <div class="balloon"></div>
-            <!-- 18 -->
-            <div class="balloon"></div>
-            <!-- 19-->
-            <div class="balloon"></div>
-            <!-- 20 -->
-            <div class="balloon"></div>
- 
+            <!-- 3 -->
+            <div class="balloon1"></div><br>
+            <!-- 4 -->
+            <div class="balloon1"></div>
+            <!-- 5 -->
+            <div class="balloon2"></div>
+            <!-- 6 -->
+            <div class="balloon2"></div>
+            
         </div>
     </div>
     <script>
-const againplay=()=>{
-location.href="./home.html"
-}
-
+        function level4(){
+            location.href="./level4.html"
+        }
     var popped = 0;
     document.addEventListener('mouseover', function(e){
         
@@ -197,7 +170,7 @@ location.href="./home.html"
                     removeEvent(e);
                     checkAllPopped();
         }
-        else if(e.target.className === "balloon" ){
+        else if(e.target.className === "balloon1" ){
             console.log("gameover")
             gameover()
 
@@ -211,12 +184,13 @@ location.href="./home.html"
     };
     function checkAllPopped(){
        
-        if (popped == 1){
+        if (popped === 4){
             console.log('all popped!');
             let gallery = document.querySelector('#balloon-gallery');
             let message = document.querySelector('#yay-no-balloons');
             
             gallery.innerHTML = '';
+            // game.style.display='block'
             message.style.display = 'block';
         }
     };
@@ -237,7 +211,7 @@ location.href="./home.html"
         let btnretry = document.createElement("BUTTON");
         btnretry.id="retry-btn"
         btnretry.onclick=function retry(){
-            location.href="../HTML/level6.html"
+            location.href="./level3.html"
         }
         let btnretryText = document.createTextNode("Retry");
         btnretry.appendChild(btnretryText);
@@ -256,9 +230,12 @@ location.href="./home.html"
 firebase.initializeApp(firebaseConfig);
     const logout=()=>{
     firebase.auth().signOut().then(() => {
-        location.href="../index.html"
+        location.href="./index.html"
     })
 }
+
+
         </script>
+
 </body>
 </html>
